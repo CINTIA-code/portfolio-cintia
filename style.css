@@ -1,0 +1,21 @@
+.contato-botoes{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:20px;
+}
+
+.botao-contato{
+    background:#1f6feb;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    text-decoration:none;
+    text-align:center;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.botao-contato:hover{
+    background:#155ac4;
+}
