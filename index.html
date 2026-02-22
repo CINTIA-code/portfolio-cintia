@@ -1,119 +1,228 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cintia Silva | Desenvolvedora Web</title>
-    <link rel="stylesheet" href="estilo.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cintia Silva | Desenvolvedora Web</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:#e6edf3;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:#0d1117;
+    padding:15px 0;
+    border-bottom:1px solid #1f2937;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:#e6edf3;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#1f6feb;
+}
+
+/* HERO */
+header{
+    text-align:center;
+    padding:140px 20px 80px;
+}
+
+.foto{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #1f6feb;
+    box-shadow:0 0 30px rgba(31,111,235,0.4);
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:2.5rem;
+}
+
+.subtitulo{
+    color:#1f6feb;
+    margin:10px 0 20px;
+}
+
+/* SECTIONS */
+section{
+    padding:80px 0;
+}
+
+h2{
+    margin-bottom:20px;
+    color:#1f6feb;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#161b22;
+    padding:20px;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border:1px solid #1f6feb;
+}
+
+.card h3{
+    color:#58a6ff;
+    margin-bottom:10px;
+}
+
+.card p{
+    margin-bottom:15px;
+    font-size:0.9rem;
+}
+
+/* BOTÃO */
+.botao{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 18px;
+    background:#1f6feb;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.botao:hover{
+    background:#155ac4;
+}
+
+/* CONTATO */
+.contato-botoes{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin:25px auto 0;
+    max-width:320px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#161b22;
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#skills">Tecnologias</a></li>
-            <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav>
+<nav>
+    <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#skills">Tecnologias</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+</nav>
 
-    <!-- HERO -->
-    <header class="container">
-        <img src="cintia.png" alt="Foto Cintia Silva" class="foto">
-        <h1>Cintia Silva</h1>
-        <p class="subtitulo">Desenvolvedora Web em formação | Foco em Back-end</p>
-    </header>
+<header class="container">
+    <img src="cintia.png" class="foto">
+    <h1>Cintia Silva</h1>
+    <p class="subtitulo">Desenvolvedora Web em formação | Foco em Back-end</p>
+</header>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="container sobre">
-        <h2>Sobre mim</h2>
-        <p>
-            Estudante de Análise e Desenvolvimento de Sistemas com foco em Desenvolvimento Web e Back-end.
-            Tenho experiência na criação de sites institucionais responsivos utilizando HTML e CSS,
-            organização de código e versionamento com Git. Busco minha primeira oportunidade na área de tecnologia,
-            com dedicação constante ao aprimoramento técnico e boas práticas de desenvolvimento.
-        </p>
-    </section>
+<section id="sobre" class="container">
+    <h2>Sobre mim</h2>
+    <p>
+        Estudante de Análise e Desenvolvimento de Sistemas com foco em Desenvolvimento Web e Back-end.
+        Tenho experiência na criação de sites institucionais responsivos utilizando HTML e CSS
+        e organização de código com Git.
+    </p>
+</section>
 
-    <!-- TECNOLOGIAS -->
-    <section id="skills" class="container">
-        <h2>Tecnologias</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Front-end</h3>
-                <p>HTML<br>CSS</p>
-            </div>
-
-            <div class="card">
-                <h3>Back-end (em evolução)</h3>
-                <p>Lógica de Programação<br>Python (básico)</p>
-            </div>
-
-            <div class="card">
-                <h3>Ferramentas</h3>
-                <p>Git<br>GitHub<br>VS Code</p>
-            </div>
+<section id="skills" class="container">
+    <h2>Tecnologias</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Front-end</h3>
+            <p>HTML<br>CSS</p>
         </div>
-    </section>
 
-    <!-- PROJETOS -->
-    <section id="projetos" class="container">
-        <h2>Projetos</h2>
-        <div class="grid">
-
-            <div class="card">
-                <h3>Site Institucional – Psicóloga</h3>
-                <p>
-                    Desenvolvimento completo de site institucional profissional,
-                    com layout responsivo e foco em experiência do usuário.
-                </p>
-                <a href="http://raizapsicologa.com.br/" target="_blank" class="botao">
-                    Ver Projeto
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>Página Pessoal</h3>
-                <p>
-                    Projeto autoral com identidade visual tech
-                    e estrutura organizada.
-                </p>
-            </div>
-
+        <div class="card">
+            <h3>Back-end</h3>
+            <p>Lógica de Programação<br>Python (básico)</p>
         </div>
-    </section>
 
-    <!-- CONTATO -->
-    <section id="contato" class="container">
-        <h2>Contato</h2>
-
-        <div class="contato-botoes">
-
-            <a href="mailto:dev.cintia@outlook.com" class="botao botao-contato">
-                📧 Enviar E-mail
-            </a>
-
-            <a href="tel:31984974335" class="botao botao-contato">
-                📞 Ligar
-            </a>
-
-            <a href="https://wa.me/5531984974335" target="_blank" class="botao botao-contato">
-                💬 WhatsApp
-            </a>
-
-            <a href="https://www.linkedin.com/in/cintia-silva-0b7034190" target="_blank" class="botao botao-contato">
-                🔗 LinkedIn
-            </a>
-
+        <div class="card">
+            <h3>Ferramentas</h3>
+            <p>Git<br>GitHub<br>VS Code</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Cintia Silva | Portfólio Desenvolvedora
-    </footer>
+<section id="projetos" class="container">
+    <h2>Projetos</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Site Institucional – Psicóloga</h3>
+            <p>Site profissional responsivo desenvolvido em HTML e CSS.</p>
+            <a href="http://raizapsicologa.com.br/" target="_blank" class="botao">
+                Ver Projeto
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="contato" class="container">
+    <h2>Contato</h2>
+
+    <div class="contato-botoes">
+        <a href="mailto:dev.cintia@outlook.com" class="botao">📧 Enviar E-mail</a>
+        <a href="tel:31984974335" class="botao">📞 Ligar</a>
+        <a href="https://wa.me/5531984974335" target="_blank" class="botao">💬 WhatsApp</a>
+        <a href="https://www.linkedin.com/in/cintia-silva-0b7034190" target="_blank" class="botao">🔗 LinkedIn</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Cintia Silva
+</footer>
 
 </body>
 </html>
