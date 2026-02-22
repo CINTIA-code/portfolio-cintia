@@ -1,205 +1,238 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Cíntia Silva — Portfólio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cintia Silva | Desenvolvedora Web</title>
 
-    <style>
-        :root {
-            --bg: #0b0f14;
-            --text: #e5e7eb;
-            --muted: #9ca3af;
-            --accent: #38bdf8;
-            --line: #1f2933;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+body {
+    background-color: #0d1117;
+    color: #e6edf3;
+}
 
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                         Roboto, Inter, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
 
-        .container {
-            max-width: 880px;
-            margin: auto;
-            padding: 80px 24px;
-        }
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgba(13,17,23,0.95);
+    backdrop-filter: blur(6px);
+    padding: 15px 0;
+    z-index: 1000;
+    border-bottom: 1px solid #1f2937;
+}
 
-        header {
-            margin-bottom: 90px;
-        }
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+}
 
-        h1 {
-            font-size: 2.6rem;
-            margin: 0;
-            font-weight: 600;
-            letter-spacing: -0.6px;
-        }
+nav a {
+    color: #e6edf3;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
 
-        header p {
-            margin-top: 16px;
-            color: var(--muted);
-            max-width: 640px;
-            font-size: 1.05rem;
-        }
+nav a:hover {
+    color: #1f6feb;
+}
 
-        section {
-            margin-bottom: 72px;
-        }
+/* HERO */
+header {
+    text-align: center;
+    padding: 140px 20px 80px;
+    animation: fadeIn 1.5s ease;
+}
 
-        h2 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 18px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+.foto {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1f6feb;
+    box-shadow: 0 0 30px rgba(31,111,235,0.4);
+    margin-bottom: 20px;
+}
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+h1 {
+    font-size: 2.5rem;
+}
 
-        .skills span {
-            border: 1px solid var(--line);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
+.subtitulo {
+    color: #1f6feb;
+    margin: 10px 0 20px;
+}
 
-        .project {
-            margin-bottom: 30px;
-        }
+.botao {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1f6feb;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: 0.3s;
+}
 
-        .project h3 {
-            margin: 0 0 6px;
-            font-weight: 500;
-            font-size: 1rem;
-        }
+.botao:hover {
+    background-color: #155ac4;
+}
 
-        .project p {
-            margin: 0 0 6px;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
+/* SECTIONS */
+section {
+    padding: 80px 0;
+    animation: fadeUp 1.5s ease;
+}
 
-        .project a {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.85rem;
-        }
+h2 {
+    margin-bottom: 20px;
+    color: #1f6feb;
+}
 
-        .contact a {
-            display: block;
-            color: var(--text);
-            text-decoration: none;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
+.sobre p {
+    max-width: 800px;
+    line-height: 1.6;
+}
 
-        footer {
-            color: var(--muted);
-            font-size: 0.8rem;
-            margin-top: 90px;
-        }
-    </style>
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #161b22;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    border: 1px solid #1f6feb;
+    transform: translateY(-6px);
+}
+
+.card h3 {
+    color: #58a6ff;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+    background-color: #161b22;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
+<nav>
+    <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#skills">Tecnologias</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+</nav>
 
-    <header>
-        <h1>Cíntia Silva</h1>
-        <p>
-            Estudante de Análise e Desenvolvimento de Sistemas.
-            Interesse em desenvolvimento web e back-end, com foco
-            em aprendizado prático e projetos reais.
-        </p>
-    </header>
+<header class="container">
+    <img src="cintia.png" alt="Foto Cintia Silva" class="foto">
+    <h1>Cintia Silva</h1>
+    <p class="subtitulo">Desenvolvedora Web em formação | Foco em Back-end</p>
+    <a href="https://github.com/SEU-USUARIO" target="_blank" class="botao">Ver GitHub</a>
+</header>
 
-    <section>
-        <h2>Sobre</h2>
-        <p>
-            Estou em transição para a área de tecnologia, aprendendo por meio
-            da prática. Desenvolvo projetos do código ao deploy, utilizando
-            GitHub Pages e configuração de domínio, buscando evolução
-            consistente e técnica.
-        </p>
-    </section>
+<section id="sobre" class="container sobre">
+    <h2>Sobre mim</h2>
+    <p>
+        Estudante de Análise e Desenvolvimento de Sistemas, com foco em Desenvolvimento Web e Back-end.
+        Experiência na criação de sites institucionais utilizando HTML e CSS, organização de código e
+        versionamento com Git e GitHub. Busco minha primeira oportunidade na área de tecnologia,
+        com forte compromisso em evolução contínua e boas práticas de desenvolvimento.
+    </p>
+</section>
 
-    <section>
-        <h2>Habilidades</h2>
-        <div class="skills">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Git</span>
-            <span>GitHub</span>
-            <span>Lógica de Programação</span>
-            <span>Deploy</span>
-            <span>DNS</span>
+<section id="skills" class="container">
+    <h2>Tecnologias</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Front-end</h3>
+            <p>HTML<br>CSS</p>
         </div>
-    </section>
-
-    <section>
-        <h2>Projetos</h2>
-
-        <div class="project">
-            <h3>Site institucional — Psicologia</h3>
-            <p>
-                Site institucional desenvolvido em HTML e CSS, com deploy
-                via GitHub Pages e domínio próprio.
-            </p>
-            <a href="http://raizapsicologa.com.br/" target="_blank">
-                Acessar site
-            </a>
+        <div class="card">
+            <h3>Back-end (em evolução)</h3>
+            <p>Lógica de Programação<br>Python (básico)</p>
         </div>
-
-        <div class="project">
-            <h3>Portfólio pessoal</h3>
-            <p>
-                Portfólio minimalista criado para apresentar minha trajetória
-                e projetos na área de tecnologia.
-            </p>
-            <a href="#" target="_blank">
-                Em desenvolvimento
-            </a>
+        <div class="card">
+            <h3>Ferramentas</h3>
+            <p>Git<br>GitHub<br>VS Code</p>
         </div>
+    </div>
+</section>
 
-    </section>
+<section id="projetos" class="container">
+    <h2>Projetos</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Site Institucional</h3>
+            <p>Desenvolvimento de site profissional com layout responsivo e foco em experiência do usuário.</p>
+        </div>
+        <div class="card">
+            <h3>Página Pessoal</h3>
+            <p>Projeto autoral minimalista com identidade visual tech e estrutura organizada em HTML.</p>
+        </div>
+        <div class="card">
+            <h3>Projetos Acadêmicos</h3>
+            <p>Exercícios e atividades voltadas para lógica de programação e fundamentos de desenvolvimento.</p>
+        </div>
+    </div>
+</section>
 
-    <section class="contact">
-        <h2>Contato</h2>
-
-        <a href="mailto:dev.cintia@outlook.com">
-            dev.cintia@outlook.com
-        </a>
-
-        <a href="https://github.com/cintia-code" target="_blank">
-            github.com/cintia-code
-        </a>
-
+<section id="contato" class="container">
+    <h2>Contato</h2>
+    <p>Email: dev.cintia@outlook.com</p>
+    <p>LinkedIn: 
         <a href="https://www.linkedin.com/in/cintia-silva-0b7034190" target="_blank">
             linkedin.com/in/cintia-silva
         </a>
-    </section>
+    </p>
+</section>
 
-    <footer>
-        © 2026 — Cíntia Silva
-    </footer>
-
-</div>
+<footer>
+    © 2026 Cintia Silva | Portfólio Desenvolvedora
+</footer>
 
 </body>
 </html>
