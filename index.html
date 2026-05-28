@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cintia Silva | Desenvolvedora Web</title>
+<title>Cintia Silva | Desenvolvedora Back-end em Formação</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 
@@ -13,17 +16,21 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI', sans-serif;
+font-family:'Segoe UI',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
 background:#0d1117;
 color:#e6edf3;
+line-height:1.6;
 }
 
 .container{
-width:90%;
-max-width:1100px;
+width:min(90%,1100px);
 margin:auto;
 }
 
@@ -31,8 +38,8 @@ margin:auto;
 
 nav{
 position:fixed;
-width:100%;
 top:0;
+width:100%;
 background:#0d1117;
 padding:18px 0;
 border-bottom:1px solid #1f2937;
@@ -42,19 +49,20 @@ z-index:1000;
 nav ul{
 display:flex;
 justify-content:center;
+flex-wrap:wrap;
+gap:25px;
 list-style:none;
-gap:30px;
 }
 
 nav a{
-color:#e6edf3;
 text-decoration:none;
+color:#e6edf3;
 font-weight:500;
-transition:0.3s;
+transition:.3s;
 }
 
 nav a:hover{
-color:#1f6feb;
+color:#58a6ff;
 }
 
 /* HERO */
@@ -70,24 +78,24 @@ height:180px;
 border-radius:50%;
 object-fit:cover;
 border:3px solid #1f6feb;
-box-shadow:0 0 30px rgba(31,111,235,0.5);
+box-shadow:0 0 30px rgba(31,111,235,.4);
 margin-bottom:20px;
 }
 
 h1{
-font-size:2.6rem;
+font-size:2.7rem;
 }
 
 .subtitulo{
+margin-top:12px;
 color:#58a6ff;
-margin:10px 0 20px;
 font-size:1.1rem;
 }
 
 /* SECTIONS */
 
 section{
-padding:80px 0;
+padding:70px 0;
 }
 
 h2{
@@ -99,63 +107,55 @@ color:#58a6ff;
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:20px;
 }
 
-/* CARDS */
+/* CARD */
 
 .card{
 background:#161b22;
-padding:22px;
-border-radius:10px;
-transition:0.3s;
+padding:24px;
+border-radius:12px;
 border:1px solid transparent;
+transition:all .3s ease;
 }
 
 .card:hover{
 transform:translateY(-6px);
-border:1px solid #1f6feb;
+border-color:#1f6feb;
 }
 
 .card h3{
+margin-bottom:12px;
 color:#58a6ff;
-margin-bottom:10px;
 }
 
-.card p{
-font-size:0.9rem;
-line-height:1.4;
-}
-
-/* BOTÃO */
+/* BOTÕES */
 
 .botao{
 display:inline-block;
+padding:12px 18px;
 margin-top:10px;
-padding:10px 16px;
 background:#1f6feb;
 color:white;
 text-decoration:none;
 border-radius:8px;
-transition:0.3s;
+transition:.3s;
 }
 
 .botao:hover{
 background:#155ac4;
 }
 
-/* CONTATO */
-
 .contato-botoes{
 display:flex;
 flex-direction:column;
 gap:15px;
 max-width:320px;
-margin-top:20px;
 }
 
-/* WHATSAPP FLUTUANTE */
+/* WHATSAPP */
 
 .whatsapp{
 position:fixed;
@@ -163,16 +163,17 @@ bottom:25px;
 right:25px;
 background:#25D366;
 color:white;
-font-size:26px;
-width:60px;
-height:60px;
+font-size:30px;
+width:65px;
+height:65px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
 text-decoration:none;
-box-shadow:0 0 15px rgba(0,0,0,0.4);
-transition:0.3s;
+box-shadow:0 4px 20px rgba(0,0,0,.3);
+transition:.3s;
+z-index:999;
 }
 
 .whatsapp:hover{
@@ -182,11 +183,27 @@ transform:scale(1.1);
 /* FOOTER */
 
 footer{
-margin-top:60px;
-text-align:center;
+margin-top:50px;
 padding:30px;
+text-align:center;
 background:#161b22;
-font-size:0.9rem;
+font-size:.9rem;
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:2rem;
+}
+
+.subtitulo{
+font-size:1rem;
+}
+
+header{
+padding-top:170px;
+}
+
 }
 
 </style>
@@ -200,7 +217,7 @@ font-size:0.9rem;
 <ul>
 <li><a href="#sobre">Sobre</a></li>
 <li><a href="#skills">Tecnologias</a></li>
-<li><a href="#servicos">Serviços</a></li>
+<li><a href="#objetivo">Objetivo</a></li>
 <li><a href="#projetos">Projetos</a></li>
 <li><a href="#contato">Contato</a></li>
 </ul>
@@ -214,7 +231,7 @@ font-size:0.9rem;
 <h1>Cintia Silva</h1>
 
 <p class="subtitulo">
-Desenvolvedora Web em formação | Foco em Back-end
+Estudante de ADS | Desenvolvedora Back-end em formação | Python • Git • Desenvolvimento Web
 </p>
 
 </header>
@@ -224,14 +241,9 @@ Desenvolvedora Web em formação | Foco em Back-end
 <h2>Sobre mim</h2>
 
 <p>
-Sou estudante de Análise e Desenvolvimento de Sistemas com foco em
-Desenvolvimento Web. Tenho interesse em Back-end e experiência na
-criação de sites institucionais responsivos utilizando HTML, CSS
-e boas práticas de organização com Git e GitHub.
+Sou estudante de Análise e Desenvolvimento de Sistemas com foco em desenvolvimento Back-end. Atualmente estudo Python, lógica de programação e boas práticas de desenvolvimento, buscando construir aplicações funcionais através de projetos práticos.
 
-Busco desenvolver soluções simples, modernas e funcionais
-para profissionais e pequenos negócios que desejam presença
-profissional na internet.
+Tenho experiência com HTML, CSS, Git e GitHub e estou em busca de oportunidades para crescer profissionalmente na área de tecnologia.
 </p>
 
 </section>
@@ -245,16 +257,18 @@ profissional na internet.
 <div class="card">
 <h3>Front-end</h3>
 <p>
-HTML<br>
-CSS
+HTML5<br>
+CSS3<br>
+Responsividade
 </p>
 </div>
 
 <div class="card">
 <h3>Back-end</h3>
 <p>
+Python<br>
 Lógica de Programação<br>
-Python (básico)
+Algoritmos
 </p>
 </div>
 
@@ -271,43 +285,15 @@ VS Code
 
 </section>
 
-<section id="servicos" class="container">
+<section id="objetivo" class="container">
 
-<h2>Serviços</h2>
-
-<div class="grid">
+<h2>Objetivo Profissional</h2>
 
 <div class="card">
-<h3>Criação de Sites</h3>
-<p>
-Desenvolvimento de sites institucionais modernos
-e responsivos para empresas e profissionais.
-</p>
-</div>
 
-<div class="card">
-<h3>Landing Pages</h3>
 <p>
-Criação de páginas de vendas e apresentação
-de serviços com foco em conversão.
+Busco oportunidade de estágio ou posição júnior em desenvolvimento Back-end para aplicar conhecimentos, desenvolver habilidades técnicas e crescer junto a equipes experientes.
 </p>
-</div>
-
-<div class="card">
-<h3>Manutenção de Sites</h3>
-<p>
-Atualização de conteúdo, correção de erros
-e melhorias em sites existentes.
-</p>
-</div>
-
-<div class="card">
-<h3>Sites para Profissionais</h3>
-<p>
-Sites para psicólogos, terapeutas,
-advogados e prestadores de serviço.
-</p>
-</div>
 
 </div>
 
@@ -321,15 +307,42 @@ advogados e prestadores de serviço.
 
 <div class="card">
 
-<h3>Site Institucional – Psicóloga</h3>
+<h3>Site Institucional - Psicóloga</h3>
 
 <p>
-Site profissional responsivo desenvolvido
-em HTML e CSS.
+Projeto responsivo desenvolvido com HTML e CSS para presença profissional online.
 </p>
 
 <a href="http://raizapsicologa.com.br/" target="_blank" class="botao">
-Ver projeto
+Ver Projeto
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>CRUD em Python</h3>
+
+<p>
+Projeto focado em cadastro, leitura, edição e exclusão de dados.
+</p>
+
+<a class="botao">
+Em desenvolvimento
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Lista de Tarefas</h3>
+
+<p>
+Aplicação para gerenciamento de tarefas utilizando lógica de programação.
+</p>
+
+<a class="botao">
+Em desenvolvimento
 </a>
 
 </div>
@@ -356,19 +369,25 @@ Ligar
 LinkedIn
 </a>
 
+<a href="https://github.com/SEUUSUARIO" target="_blank" class="botao">
+GitHub
+</a>
+
 </div>
 
 </section>
 
 <footer>
 
-© 2026 Cintia Silva • Desenvolvedora Web
+© 2026 Cintia Silva • Desenvolvedora Back-end em Formação
 
 </footer>
 
 <a href="https://wa.me/5531984974335" class="whatsapp" target="_blank">
-💬
+
+<i class="fa-brands fa-whatsapp"></i>
+
 </a>
 
 </body>
-</html> 
+</html>
