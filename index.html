@@ -1,377 +1,1020 @@
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cintia Silva | Desenvolvedora Back-end em Formação</title>
+<title>Cintia Silva | Backend Developer</title>
+
+<meta name="description" content="Cintia Silva - ADS student, aspiring Backend Developer, software engineering and international academic opportunities.">
+
+<meta name="theme-color" content="#080d18">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+:root {
+    --bg: #080d18;
+    --surface: #101827;
+    --surface2: #131f31;
+    --blue: #4d9fff;
+    --cyan: #67d5ff;
+    --text: #e8eef8;
+    --muted: #8d9bb0;
+    --border: rgba(137, 166, 207, .15);
+    --mono: 'DM Mono', monospace;
+    --font: 'Inter', sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-background:#0d1117;
-color:#e6edf3;
-line-height:1.6;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
-.container{
-width:min(90%,1100px);
-margin:auto;
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
-/* NAVBAR */
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:#0d1117;
-padding:18px 0;
-border-bottom:1px solid #1f2937;
-z-index:1000;
+a {
+    color: inherit;
 }
 
-nav ul{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:25px;
-list-style:none;
+.container {
+    width: min(1120px, 88%);
+    margin: auto;
 }
 
-nav a{
-text-decoration:none;
-color:#e6edf3;
-font-weight:500;
-transition:.3s;
+::selection {
+    background: var(--blue);
+    color: white;
 }
 
-nav a:hover{
-color:#58a6ff;
+/* BACKGROUND */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(77,159,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77,159,255,.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(31,111,235,.13);
+    filter: blur(120px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(8,13,24,.93);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-content {
+    width: min(1120px, 88%);
+    min-height: 76px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: .84rem;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--blue);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.language-btn,
+.menu-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    padding: 9px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-family: var(--font);
+}
+
+.language-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.menu-btn {
+    display: none;
 }
 
 /* HERO */
 
-header{
-text-align:center;
-padding:150px 20px 90px;
+.hero {
+    min-height: 690px;
+    display: flex;
+    align-items: center;
+    padding: 150px 0 100px;
+    position: relative;
 }
 
-.foto{
-width:180px;
-height:180px;
-border-radius:50%;
-object-fit:cover;
-border:3px solid #1f6feb;
-box-shadow:0 0 30px rgba(31,111,235,.4);
-margin-bottom:20px;
+.hero-content {
+    max-width: 850px;
 }
 
-h1{
-font-size:2.7rem;
+.eyebrow {
+    font-family: var(--mono);
+    color: var(--cyan);
+    font-size: .78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.subtitulo{
-margin-top:12px;
-color:#58a6ff;
-font-size:1.1rem;
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 5.7rem);
+    line-height: 1.08;
+    letter-spacing: -4px;
+    margin: 24px 0;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero-description {
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.hero-description strong {
+    color: var(--text);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 21px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 600;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.button-primary {
+    background: var(--blue);
+    color: #06101f;
+}
+
+.button-primary:hover {
+    background: var(--cyan);
+    transform: translateY(-3px);
+}
+
+.button-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.button-outline:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+/* STATUS */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 35px;
+    color: var(--muted);
+    font-size: .82rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #45d49a;
+    box-shadow: 0 0 12px #45d49a;
 }
 
 /* SECTIONS */
 
-section{
-padding:70px 0;
+section {
+    padding: 95px 0;
 }
 
-h2{
-margin-bottom:25px;
-color:#58a6ff;
+.section-label {
+    color: var(--cyan);
+    font-family: var(--mono);
+    font-size: .76rem;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
 }
 
-/* GRID */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
+.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    letter-spacing: -1px;
+    margin-bottom: 16px;
 }
 
-/* CARD */
-
-.card{
-background:#161b22;
-padding:24px;
-border-radius:12px;
-border:1px solid transparent;
-transition:all .3s ease;
+.section-intro {
+    color: var(--muted);
+    max-width: 680px;
+    margin-bottom: 38px;
 }
 
-.card:hover{
-transform:translateY(-6px);
-border-color:#1f6feb;
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    gap: 45px;
+    align-items: start;
 }
 
-.card h3{
-margin-bottom:12px;
-color:#58a6ff;
+.about-text {
+    color: var(--muted);
 }
 
-/* BOTÕES */
-
-.botao{
-display:inline-block;
-padding:12px 18px;
-margin-top:10px;
-background:#1f6feb;
-color:white;
-text-decoration:none;
-border-radius:8px;
-transition:.3s;
+.about-text p + p {
+    margin-top: 17px;
 }
 
-.botao:hover{
-background:#155ac4;
+.about-info {
+    display: grid;
+    gap: 13px;
 }
 
-.contato-botoes{
-display:flex;
-flex-direction:column;
-gap:15px;
-max-width:320px;
+.info-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 17px;
 }
 
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-color:white;
-font-size:30px;
-width:65px;
-height:65px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-text-decoration:none;
-box-shadow:0 4px 20px rgba(0,0,0,.3);
-transition:.3s;
-z-index:999;
+.info-item small {
+    display: block;
+    font-family: var(--mono);
+    color: var(--blue);
+    font-size: .7rem;
+    margin-bottom: 5px;
 }
 
-.whatsapp:hover{
-transform:scale(1.1);
+.info-item strong {
+    font-size: .9rem;
+}
+
+/* TECH STACK */
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.tech-card {
+    padding: 26px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.tech-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-4px);
+}
+
+.tech-card i {
+    font-size: 1.5rem;
+    color: var(--blue);
+    margin-bottom: 17px;
+}
+
+.tech-card h3 {
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.tech-card p {
+    color: var(--muted);
+    font-size: .86rem;
+}
+
+.tech-note {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: .66rem;
+    color: var(--cyan);
+    margin-top: 14px;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 27px;
+    transition: .3s;
+}
+
+.project-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-4px);
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.project-icon {
+    font-size: 1.6rem;
+    color: var(--blue);
+}
+
+.project-status {
+    font-family: var(--mono);
+    font-size: .65rem;
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    padding: 5px 9px;
+    border-radius: 20px;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--muted);
+    font-size: .88rem;
+    margin-bottom: 18px;
+}
+
+.project-stack {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.project-stack span {
+    font-family: var(--mono);
+    font-size: .68rem;
+    padding: 5px 9px;
+    background: #1a2a41;
+    color: #8fc4ff;
+    border-radius: 4px;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: .85rem;
+    margin-top: 20px;
+}
+
+.project-link:hover {
+    color: var(--cyan);
+}
+
+/* INTERNATIONAL */
+
+.international-card {
+    padding: 45px;
+    border-radius: 12px;
+    border: 1px solid rgba(77,159,255,.3);
+    background:
+        radial-gradient(ellipse at top right, rgba(31,111,235,.15), transparent 60%),
+        var(--surface);
+}
+
+.international-card h2 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+}
+
+.international-card p {
+    color: var(--muted);
+    max-width: 750px;
+}
+
+.international-tag {
+    display: inline-flex;
+    gap: 9px;
+    align-items: center;
+    color: var(--cyan);
+    font-family: var(--mono);
+    font-size: .78rem;
+    margin-top: 24px;
+}
+
+/* CONTACT */
+
+.contact-box {
+    padding: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin-bottom: 28px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 19px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    text-decoration: none;
+    transition: .3s;
+    font-size: .88rem;
+}
+
+.social-links a:hover {
+    border-color: var(--blue);
+    color: var(--blue);
 }
 
 /* FOOTER */
 
-footer{
-margin-top:50px;
-padding:30px;
-text-align:center;
-background:#161b22;
-font-size:.9rem;
+footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: .78rem;
 }
 
-@media(max-width:600px){
-
-h1{
-font-size:2rem;
+footer span {
+    color: var(--blue);
 }
 
-.subtitulo{
-font-size:1rem;
+/* MOBILE */
+
+@media(max-width: 850px) {
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: .78rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
 }
 
-header{
-padding-top:170px;
+@media(max-width: 680px) {
+
+    .nav-content {
+        min-height: 68px;
+    }
+
+    .menu-btn {
+        display: inline-block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        padding: 25px 6%;
+        background: #0b1220;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 19px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: .95rem;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 155px 0 90px;
+    }
+
+    .hero h1 {
+        font-size: 3.1rem;
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: .95rem;
+    }
+
+    section {
+        padding: 70px 0;
+    }
+
+    .tech-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .international-card,
+    .contact-box {
+        padding: 25px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .button {
+        width: 100%;
+    }
+
+    .social-links {
+        flex-direction: column;
+    }
+
+    .social-links a {
+        justify-content: center;
+    }
+
 }
 
+@media(prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
 }
 
 </style>
-
 </head>
 
 <body>
 
 <nav>
+<div class="nav-content">
 
-<ul>
-<li><a href="#sobre">Sobre</a></li>
-<li><a href="#skills">Tecnologias</a></li>
-<li><a href="#objetivo">Objetivo</a></li>
-<li><a href="#projetos">Projetos</a></li>
-<li><a href="#contato">Contato</a></li>
+<a href="#inicio" class="logo">CINTIA<span>.DEV</span></a>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#sobre" data-i18n="navAbout">Sobre</a></li>
+<li><a href="#tecnologias" data-i18n="navTech">Tecnologias</a></li>
+<li><a href="#projetos" data-i18n="navProjects">Projetos</a></li>
+<li><a href="#internacional" data-i18n="navInternational">Internacional</a></li>
+<li><a href="#contato" data-i18n="navContact">Contato</a></li>
 </ul>
 
+<div class="nav-actions">
+<button class="language-btn" id="languageToggle">EN</button>
+<button class="menu-btn" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+<i class="fa-solid fa-bars"></i>
+</button>
+</div>
+
+</div>
 </nav>
 
-<header class="container">
+<div class="glow" style="top:100px;right:-150px"></div>
 
-<img src="cintia.png" class="foto">
+<!-- HERO -->
 
-<h1>Cintia Silva</h1>
+<header class="hero container" id="inicio">
 
-<p class="subtitulo">
-Estudante de ADS | Desenvolvedora Back-end em formação | Python • Git • Desenvolvimento Web
+<div class="hero-content">
+
+<p class="eyebrow" data-i18n="eyebrow">
+01 / SOFTWARE DEVELOPMENT
 </p>
+
+<h1>
+Cintia Silva<span>.</span>
+</h1>
+
+<p class="section-label" data-i18n="heroRole">
+BACKEND DEVELOPER IN DEVELOPMENT
+</p>
+
+<p class="hero-description" data-i18n="heroDescription">
+Estudante de Análise e Desenvolvimento de Sistemas, construindo minha trajetória em tecnologia com foco em desenvolvimento Backend, engenharia de software e soluções digitais.
+</p>
+
+<div class="hero-actions">
+
+<a href="#projetos" class="button button-primary">
+<i class="fa-solid fa-code"></i>
+<span data-i18n="heroProjects">Explorar projetos</span>
+</a>
+
+<a href="https://github.com/CINTIA-code"
+target="_blank"
+rel="noopener noreferrer"
+class="button button-outline">
+<i class="fa-brands fa-github"></i>
+GitHub
+</a>
+
+</div>
+
+<div class="status">
+<span class="status-dot"></span>
+<span data-i18n="status">Em formação • Aberta a oportunidades</span>
+</div>
+
+</div>
 
 </header>
 
-<section id="sobre" class="container">
+<!-- ABOUT -->
 
-<h2>Sobre mim</h2>
+<section class="container" id="sobre">
 
-<p>
-Sou estudante de Análise e Desenvolvimento de Sistemas com foco em desenvolvimento Back-end. Atualmente estudo Python, lógica de programação e boas práticas de desenvolvimento, buscando construir aplicações funcionais através de projetos práticos.
+<p class="section-label">02 / ABOUT</p>
 
-Tenho experiência com HTML, CSS, Git e GitHub e estou em busca de oportunidades para crescer profissionalmente na área de tecnologia.
+<h2 class="section-title" data-i18n="aboutTitle">Sobre mim</h2>
+
+<div class="about-grid">
+
+<div class="about-text">
+
+<p data-i18n="aboutText1">
+Sou estudante de Análise e Desenvolvimento de Sistemas, interessada em desenvolvimento Backend e engenharia de software. Tenho buscado desenvolver uma base sólida em programação, lógica computacional e construção de aplicações.
 </p>
 
-</section>
-
-<section id="skills" class="container">
-
-<h2>Tecnologias</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Front-end</h3>
-<p>
-HTML5<br>
-CSS3<br>
-Responsividade
+<p data-i18n="aboutText2">
+Meu objetivo é transformar conhecimento em soluções práticas, desenvolver projetos consistentes e evoluir continuamente como profissional de tecnologia.
 </p>
-</div>
-
-<div class="card">
-<h3>Back-end</h3>
-<p>
-Python<br>
-Lógica de Programação<br>
-Algoritmos
-</p>
-</div>
-
-<div class="card">
-<h3>Ferramentas</h3>
-<p>
-Git<br>
-GitHub<br>
-VS Code
-</p>
-</div>
 
 </div>
 
-</section>
+<div class="about-info">
 
-<section id="objetivo" class="container">
+<div class="info-item">
+<small>EDUCATION</small>
+<strong data-i18n="education">Análise e Desenvolvimento de Sistemas</strong>
+</div>
 
-<h2>Objetivo Profissional</h2>
+<div class="info-item">
+<small>FOCUS</small>
+<strong>Backend Development</strong>
+</div>
 
-<div class="card">
+<div class="info-item">
+<small>LOCATION</small>
+<strong>Brazil</strong>
+</div>
 
-<p>
-Busco oportunidade de estágio ou posição júnior em desenvolvimento Back-end para aplicar conhecimentos, desenvolver habilidades técnicas e crescer junto a equipes experientes.
-</p>
+<div class="info-item">
+<small>LANGUAGES</small>
+<strong data-i18n="languages">Português • Inglês em desenvolvimento</strong>
+</div>
 
+</div>
 </div>
 
 </section>
 
-<section id="projetos" class="container">
+<!-- TECHNOLOGIES -->
 
-<h2>Projetos</h2>
+<section class="container" id="tecnologias">
 
-<div class="grid">
+<p class="section-label">03 / TECHNOLOGIES</p>
 
-<div class="card">
+<h2 class="section-title" data-i18n="techTitle">Tecnologias e conhecimentos</h2>
 
-<h3>Site Institucional - Psicóloga</h3>
-
-<p>
-Projeto responsivo desenvolvido com HTML e CSS para presença profissional online.
+<p class="section-intro" data-i18n="techIntro">
+Ferramentas e fundamentos que fazem parte da minha formação em desenvolvimento de software.
 </p>
 
-<a href="http://raizapsicologa.com.br/" target="_blank" class="botao">
-Ver Projeto
-</a>
+<div class="tech-grid">
 
+<div class="tech-card">
+<i class="fa-brands fa-python"></i>
+<h3>Python</h3>
+<p data-i18n="pythonText">Estudos de programação, lógica e desenvolvimento de aplicações.</p>
+<span class="tech-note">LEARNING</span>
 </div>
 
-<div class="card">
-
-<h3>CRUD em Python</h3>
-
-<p>
-Projeto focado em cadastro, leitura, edição e exclusão de dados.
-</p>
-
-<a class="botao">
-Em desenvolvimento
-</a>
-
+<div class="tech-card">
+<i class="fa-solid fa-code"></i>
+<h3>HTML5 / CSS3</h3>
+<p data-i18n="webText">Estruturação de páginas, estilização e responsividade.</p>
+<span class="tech-note">PRACTICAL EXPERIENCE</span>
 </div>
 
-<div class="card">
+<div class="tech-card">
+<i class="fa-solid fa-database"></i>
+<h3>SQL</h3>
+<p data-i18n="sqlText">Fundamentos de bancos de dados e consultas.</p>
+<span class="tech-note">LEARNING</span>
+</div>
 
-<h3>Lista de Tarefas</h3>
+<div class="tech-card">
+<i class="fa-brands fa-git-alt"></i>
+<h3>Git & GitHub</h3>
+<p data-i18n="gitText">Versionamento e organização de projetos.</p>
+<span class="tech-note">PRACTICAL EXPERIENCE</span>
+</div>
 
-<p>
-Aplicação para gerenciamento de tarefas utilizando lógica de programação.
-</p>
+<div class="tech-card">
+<i class="fa-solid fa-server"></i>
+<h3>Backend</h3>
+<p data-i18n="backendText">Lógica de programação, algoritmos e fundamentos de desenvolvimento.</p>
+<span class="tech-note">LEARNING</span>
+</div>
 
-<a class="botao">
-Em desenvolvimento
-</a>
-
+<div class="tech-card">
+<i class="fa-solid fa-terminal"></i>
+<h3>Development Tools</h3>
+<p>VS Code · Terminal · GitHub</p>
+<span class="tech-note">TOOLS</span>
 </div>
 
 </div>
 
 </section>
 
-<section id="contato" class="container">
+<!-- PROJECTS -->
 
-<h2>Contato</h2>
+<section class="container" id="projetos">
 
-<div class="contato-botoes">
+<p class="section-label">04 / SELECTED WORK</p>
 
-<a href="mailto:dev.cintia@outlook.com" class="botao">
-Enviar E-mail
+<h2 class="section-title" data-i18n="projectsTitle">Projetos em destaque</h2>
+
+<p class="section-intro" data-i18n="projectsIntro">
+Projetos práticos desenvolvidos durante minha jornada de aprendizagem.
+</p>
+
+<div class="projects-grid">
+
+<article class="project-card">
+
+<div class="project-top">
+<i class="fa-solid fa-globe project-icon"></i>
+<span class="project-status" data-i18n="completed">PUBLICADO</span>
+</div>
+
+<h3 data-i18n="project1Title">Website institucional – Psicóloga</h3>
+
+<p data-i18n="project1Text">
+Desenvolvimento de site institucional responsivo para apresentação profissional e presença digital.
+</p>
+
+<div class="project-stack">
+<span>HTML5</span>
+<span>CSS3</span>
+<span>Responsive Design</span>
+</div>
+
+<a href="https://raizapsicologa.com.br/"
+target="_blank"
+rel="noopener noreferrer"
+class="project-link">
+<span data-i18n="viewProject">Visualizar projeto</span> →
 </a>
 
-<a href="tel:31984974335" class="botao">
-Ligar
+</article>
+
+<article class="project-card">
+
+<div class="project-top">
+<i class="fa-solid fa-database project-icon"></i>
+<span class="project-status" data-i18n="development">EM DESENVOLVIMENTO</span>
+</div>
+
+<h3>Python CRUD</h3>
+
+<p data-i18n="project2Text">
+Aplicação para criação, leitura, atualização e exclusão de registros.
+</p>
+
+<div class="project-stack">
+<span>Python</span>
+<span>Logic</span>
+<span>CRUD</span>
+</div>
+
+</article>
+
+<article class="project-card">
+
+<div class="project-top">
+<i class="fa-solid fa-list-check project-icon"></i>
+<span class="project-status" data-i18n="development">EM DESENVOLVIMENTO</span>
+</div>
+
+<h3 data-i18n="project3Title">Task Manager</h3>
+
+<p data-i18n="project3Text">
+Aplicação de gerenciamento de tarefas com foco em lógica de programação.
+</p>
+
+<div class="project-stack">
+<span>Python</span>
+<span>Programming Logic</span>
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+<!-- INTERNATIONAL -->
+
+<section class="container" id="internacional">
+
+<p class="section-label">05 / GLOBAL PERSPECTIVE</p>
+
+<div class="international-card">
+
+<p class="section-label" data-i18n="internationalLabel">
+ACADEMIC DEVELOPMENT
+</p>
+
+<h2 data-i18n="internationalTitle">
+Objetivos acadêmicos internacionais
+</h2>
+
+<p data-i18n="internationalText">
+Tenho interesse em oportunidades de intercâmbio acadêmico, bolsas de estudo e programas internacionais de formação em tecnologia. Busco aprofundar meus conhecimentos em Engenharia de Software e desenvolvimento Backend, ampliando minha experiência acadêmica e meu contato com ambientes internacionais de inovação.
+</p>
+
+<p data-i18n="taiwanText" style="margin-top:15px">
+Tenho especial interesse em Taiwan, reconhecido internacionalmente por sua contribuição à indústria tecnológica e de semicondutores.
+</p>
+
+<div class="international-tag">
+<i class="fa-solid fa-earth-asia"></i>
+<span data-i18n="internationalTag">OPEN TO INTERNATIONAL ACADEMIC OPPORTUNITIES</span>
+</div>
+
+</div>
+
+</section>
+
+<!-- CAREER -->
+
+<section class="container">
+
+<p class="section-label">06 / CAREER</p>
+
+<h2 class="section-title" data-i18n="careerTitle">
+Objetivo profissional
+</h2>
+
+<p class="section-intro" data-i18n="careerText">
+Busco oportunidades de estágio em desenvolvimento Backend para aplicar meus conhecimentos, aprender com profissionais experientes e contribuir para a criação de soluções tecnológicas.
+</p>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="container" id="contato">
+
+<div class="contact-box">
+
+<p class="section-label">07 / CONNECT</p>
+
+<h2 class="section-title" data-i18n="contactTitle">
+Vamos construir conexões?
+</h2>
+
+<p data-i18n="contactText">
+Estou aberta a oportunidades profissionais, projetos colaborativos e conexões acadêmicas.
+</p>
+
+<div class="social-links">
+
+<a href="mailto:dev.cintia@outlook.com">
+<i class="fa-regular fa-envelope"></i>
+E-mail
 </a>
 
-<a href="https://www.linkedin.com/in/cintia-silva-0b7034190" target="_blank" class="botao">
+<a href="https://www.linkedin.com/in/cintia-silva-0b7034190/"
+target="_blank"
+rel="noopener noreferrer">
+<i class="fa-brands fa-linkedin"></i>
 LinkedIn
 </a>
 
-<a href="https://github.com/SEUUSUARIO" target="_blank" class="botao">
+<a href="https://github.com/CINTIA-code"
+target="_blank"
+rel="noopener noreferrer">
+<i class="fa-brands fa-github"></i>
 GitHub
 </a>
+
+</div>
 
 </div>
 
@@ -379,15 +1022,220 @@ GitHub
 
 <footer>
 
-© 2026 Cintia Silva • Desenvolvedora Back-end em Formação
+<p>
+© 2026 Cintia Silva. <span data-i18n="footer">Desenvolvido com propósito e tecnologia.</span>
+</p>
 
 </footer>
 
-<a href="https://wa.me/5531984974335" class="whatsapp" target="_blank">
+<script>
 
-<i class="fa-brands fa-whatsapp"></i>
+/* TRANSLATIONS */
 
-</a>
+const translations = {
+
+pt: {
+
+navAbout: "Sobre",
+navTech: "Tecnologias",
+navProjects: "Projetos",
+navInternational: "Internacional",
+navContact: "Contato",
+
+eyebrow: "01 / DESENVOLVIMENTO DE SOFTWARE",
+heroRole: "DESENVOLVEDORA BACKEND EM FORMAÇÃO",
+
+heroDescription: "Estudante de Análise e Desenvolvimento de Sistemas, construindo minha trajetória em tecnologia com foco em desenvolvimento Backend, engenharia de software e soluções digitais.",
+
+heroProjects: "Explorar projetos",
+status: "Em formação • Aberta a oportunidades",
+
+aboutTitle: "Sobre mim",
+aboutText1: "Sou estudante de Análise e Desenvolvimento de Sistemas, interessada em desenvolvimento Backend e engenharia de software. Tenho buscado desenvolver uma base sólida em programação, lógica computacional e construção de aplicações.",
+aboutText2: "Meu objetivo é transformar conhecimento em soluções práticas, desenvolver projetos consistentes e evoluir continuamente como profissional de tecnologia.",
+
+education: "Análise e Desenvolvimento de Sistemas",
+languages: "Português • Inglês em desenvolvimento",
+
+techTitle: "Tecnologias e conhecimentos",
+techIntro: "Ferramentas e fundamentos que fazem parte da minha formação em desenvolvimento de software.",
+
+pythonText: "Estudos de programação, lógica e desenvolvimento de aplicações.",
+webText: "Estruturação de páginas, estilização e responsividade.",
+sqlText: "Fundamentos de bancos de dados e consultas.",
+gitText: "Versionamento e organização de projetos.",
+backendText: "Lógica de programação, algoritmos e fundamentos de desenvolvimento.",
+
+projectsTitle: "Projetos em destaque",
+projectsIntro: "Projetos práticos desenvolvidos durante minha jornada de aprendizagem.",
+
+completed: "PUBLICADO",
+development: "EM DESENVOLVIMENTO",
+
+project1Title: "Website institucional – Psicóloga",
+project1Text: "Desenvolvimento de site institucional responsivo para apresentação profissional e presença digital.",
+project2Text: "Aplicação para criação, leitura, atualização e exclusão de registros.",
+project3Title: "Gerenciador de tarefas",
+project3Text: "Aplicação de gerenciamento de tarefas com foco em lógica de programação.",
+
+viewProject: "Visualizar projeto",
+
+internationalLabel: "DESENVOLVIMENTO ACADÊMICO",
+internationalTitle: "Objetivos acadêmicos internacionais",
+internationalText: "Tenho interesse em oportunidades de intercâmbio acadêmico, bolsas de estudo e programas internacionais de formação em tecnologia. Busco aprofundar meus conhecimentos em Engenharia de Software e desenvolvimento Backend, ampliando minha experiência acadêmica e meu contato com ambientes internacionais de inovação.",
+taiwanText: "Tenho especial interesse em Taiwan, reconhecido internacionalmente por sua contribuição à indústria tecnológica e de semicondutores.",
+internationalTag: "ABERTA A OPORTUNIDADES ACADÊMICAS INTERNACIONAIS",
+
+careerTitle: "Objetivo profissional",
+careerText: "Busco oportunidades de estágio em desenvolvimento Backend para aplicar meus conhecimentos, aprender com profissionais experientes e contribuir para a criação de soluções tecnológicas.",
+
+contactTitle: "Vamos construir conexões?",
+contactText: "Estou aberta a oportunidades profissionais, projetos colaborativos e conexões acadêmicas.",
+
+footer: "Desenvolvido com propósito e tecnologia."
+
+},
+
+en: {
+
+navAbout: "About",
+navTech: "Technologies",
+navProjects: "Projects",
+navInternational: "International",
+navContact: "Contact",
+
+eyebrow: "01 / SOFTWARE DEVELOPMENT",
+heroRole: "ASPIRING BACKEND DEVELOPER",
+
+heroDescription: "Systems Analysis and Development student building my career in technology, with a focus on Backend development, software engineering and digital solutions.",
+
+heroProjects: "Explore projects",
+status: "Currently studying • Open to opportunities",
+
+aboutTitle: "About Me",
+aboutText1: "I am a Systems Analysis and Development student interested in Backend development and software engineering. I am working to build a solid foundation in programming, computational logic and application development.",
+aboutText2: "My goal is to turn knowledge into practical solutions, develop meaningful projects and continuously grow as a technology professional.",
+
+education: "Systems Analysis and Development",
+languages: "Portuguese • English in progress",
+
+techTitle: "Technologies and Skills",
+techIntro: "Tools and fundamentals that are part of my software development learning journey.",
+
+pythonText: "Programming, logic and application development studies.",
+webText: "Page structure, styling and responsive design.",
+sqlText: "Database fundamentals and queries.",
+gitText: "Version control and project organization.",
+backendText: "Programming logic, algorithms and development fundamentals.",
+
+projectsTitle: "Featured Projects",
+projectsIntro: "Practical projects developed throughout my learning journey.",
+
+completed: "PUBLISHED",
+development: "IN DEVELOPMENT",
+
+project1Title: "Professional Website – Psychologist",
+project1Text: "Responsive institutional website developed to establish a professional online presence.",
+project2Text: "Application for creating, reading, updating and deleting records.",
+project3Title: "Task Manager",
+project3Text: "Task management application focused on programming logic.",
+
+viewProject: "View project",
+
+internationalLabel: "ACADEMIC DEVELOPMENT",
+internationalTitle: "International Academic Goals",
+internationalText: "I am interested in academic exchange opportunities, scholarships and international technology education programs. I aim to deepen my knowledge of Software Engineering and Backend development, expand my academic experience and engage with international innovation environments.",
+taiwanText: "I am particularly interested in Taiwan, internationally recognized for its contribution to the technology and semiconductor industries.",
+internationalTag: "OPEN TO INTERNATIONAL ACADEMIC OPPORTUNITIES",
+
+careerTitle: "Career Objective",
+careerText: "I am seeking Backend development internship opportunities where I can apply my knowledge, learn from experienced professionals and contribute to building technological solutions.",
+
+contactTitle: "Let's build connections!",
+contactText: "I am open to professional opportunities, collaborative projects and academic connections.",
+
+footer: "Built with purpose and technology."
+
+}
+
+};
+
+/* LANGUAGE SWITCH */
+
+const languageButton = document.getElementById("languageToggle");
+
+function changeLanguage(language) {
+
+document.querySelectorAll("[data-i18n]").forEach(element => {
+
+const key = element.dataset.i18n;
+
+if (translations[language][key]) {
+element.textContent = translations[language][key];
+}
+
+});
+
+document.documentElement.lang =
+language === "pt" ? "pt-BR" : "en";
+
+document.title = language === "pt"
+? "Cintia Silva | Desenvolvedora Backend"
+: "Cintia Silva | Aspiring Backend Developer";
+
+languageButton.textContent =
+language === "pt" ? "EN" : "PT";
+
+localStorage.setItem("portfolioLanguage", language);
+
+}
+
+languageButton.addEventListener("click", () => {
+
+const current = localStorage.getItem("portfolioLanguage") || "pt";
+
+changeLanguage(current === "pt" ? "en" : "pt");
+
+});
+
+/* MOBILE MENU */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+
+const opened = navLinks.classList.toggle("active");
+
+menuToggle.setAttribute("aria-expanded", opened);
+
+menuToggle.innerHTML = opened
+? '<i class="fa-solid fa-xmark"></i>'
+: '<i class="fa-solid fa-bars"></i>';
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+link.addEventListener("click", () => {
+
+navLinks.classList.remove("active");
+
+menuToggle.setAttribute("aria-expanded", "false");
+
+menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+});
+
+});
+
+/* RESTORE LANGUAGE */
+
+const savedLanguage = localStorage.getItem("portfolioLanguage");
+
+changeLanguage(savedLanguage === "en" ? "en" : "pt");
+
+</script>
 
 </body>
 </html>
